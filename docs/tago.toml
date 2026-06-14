@@ -1,0 +1,10 @@
+title       = "unsdg"
+baseURL     = "https://unsdg-cli.tamnd.com/"
+description = "A command line for unsdg."
+contentDir  = "content"
+outputDir   = "public"
+theme       = "tago-doks"
+syntaxHighlight = "true"
+
+[params]
+github = "https://github.com/tamnd/unsdg-cli"
