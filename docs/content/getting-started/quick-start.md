@@ -7,13 +7,24 @@ weight: 30
 Once `unsdg` is on your `PATH`:
 
 ```bash
-unsdg --help       # see the command tree
-unsdg version      # build info
+unsdg goals               # list all 17 SDGs as a table
+unsdg goals -o json       # full JSON
+unsdg targets             # list all 169 targets
+unsdg targets --goal 1    # targets for goal 1 only
+unsdg targets -o jsonl | jq .title
 ```
 
-This is a fresh scaffold, so the command tree is just `version` for now. Add
-your first real command in `cli/`, build on the `unsdg` library package,
-and document it here.
+Output auto-adapts: a table on a terminal, JSONL when piped. Pick a format
+explicitly with `-o table|json|jsonl|csv|tsv`.
 
-A good first command usually fetches one thing and prints it as JSON, so the
-output pipes straight into `jq` and the rest of your tools.
+Keep only the fields you need:
+
+```bash
+unsdg goals --fields code,title
+```
+
+Limit the number of records:
+
+```bash
+unsdg goals -n 5
+```

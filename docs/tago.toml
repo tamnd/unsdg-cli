@@ -1,6 +1,6 @@
 title       = "unsdg"
 baseURL     = "https://unsdg-cli.tamnd.com/"
-description = "A command line for unsdg."
+description = "Browse UN Sustainable Development Goals from the command line"
 contentDir  = "content"
 outputDir   = "public"
 theme       = "tago-doks"

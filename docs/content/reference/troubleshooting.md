@@ -4,30 +4,17 @@ description: "The handful of things that trip people up, and how to fix each one
 weight: 40
 ---
 
-Most of these come down to network reality or how unsdg serves its data,
-not a bug. Fill this page out with the site-specific cases as you find them.
-
 ## Requests start failing or returning 429
 
-unsdg rate-limits like any public site. unsdg already paces
-requests and retries the transient failures, but a hard limit still means
-backing off. Raise the delay between requests with `--rate` (for example
-`--rate 1s`), lower any concurrency you have set, and retry later. A burst of
-429 or 5xx responses is the site asking you to slow down, not a defect.
+The UN SDG API is a public REST API. `unsdg` already paces requests and retries
+transient failures, but a hard rate limit still means backing off. Raise the
+delay with `--delay 1s` and retry later.
 
-## Nothing is found for something you expected
+## Nothing returned from targets
 
-The public surface is not the whole site. Some data sits behind a login, a
-region, or a page that only renders with JavaScript, and that part is not
-reachable without the right session. Check that the input is spelled the way the
-site uses it, try a broader query, and see whether the same thing is visible in
-a private browser window before assuming it is missing.
-
-## A command needs a session
-
-Where a surface is gated, unsdg reads a cookie or token you supply
-rather than logging in for you. Pass it on the command that needs it and keep it
-out of your shell history. Commands that work without one stay anonymous.
+The UN SDG API returns an empty array for invalid goal numbers. Check that the
+goal number is between 1 and 17. `unsdg targets --goal 99` will exit with
+code 3 (no data).
 
 ## The binary is not on your PATH
 
@@ -35,9 +22,3 @@ out of your shell history. Commands that work without one stay anonymous.
 a release archive leaves it wherever you unpacked it. If your shell cannot find
 `unsdg`, add that directory to your `PATH`. See
 [installation](/getting-started/installation/).
-
-## Seeing what unsdg actually did
-
-When something behaves unexpectedly, `-v` adds per-request detail so you can see
-the URLs it hit and the responses it got. That is usually enough to tell a rate
-limit apart from a genuinely empty result.

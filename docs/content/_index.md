@@ -1,22 +1,19 @@
 ---
 title: "unsdg"
-description: "A command line for unsdg."
+description: "Browse UN Sustainable Development Goals from the command line"
 heroTitle: "unsdg, from the command line"
-heroLead: "A command line for unsdg. One pure-Go binary, no API key, output that pipes into the rest of your tools."
+heroLead: "Browse UN Sustainable Development Goals. One pure-Go binary, no API key, output that pipes into the rest of your tools."
 heroPrimaryURL: "/getting-started/quick-start/"
 heroPrimaryText: "Get started"
 ---
 
-A command line for unsdg.
+Browse UN Sustainable Development Goals from the command line.
 
 ```bash
-unsdg --help            # the command tree
-unsdg version           # build info
+unsdg goals               # list all 17 SDGs
+unsdg targets             # list all 169 targets
+unsdg targets --goal 1    # targets for goal 1 only
 ```
-
-This site is a starting point. As you add commands, document each one under
-[guides](/guides/) and keep the [CLI reference](/reference/cli/) in step with
-the real flag set.
 
 ## Where to go next
 

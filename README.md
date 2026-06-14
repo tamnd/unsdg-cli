@@ -1,8 +1,8 @@
 # unsdg
 
-A command line for unsdg.
+Browse UN Sustainable Development Goals from the command line.
 
-`unsdg` is a single pure-Go binary. It speaks to unsdg over plain
+`unsdg` is a single pure-Go binary. It speaks to the UN SDG API over plain
 HTTPS, shapes the responses into clean records, and pipes into the rest of your
 tools. No API key, nothing to run alongside it.
 
@@ -22,20 +22,20 @@ docker run --rm ghcr.io/tamnd/unsdg:latest --help
 ## Usage
 
 ```bash
-unsdg --help
-unsdg version
+unsdg goals               # list all 17 SDGs
+unsdg targets             # list all 169 targets
+unsdg targets --goal 1    # targets for goal 1 only
+unsdg goals -o json       # JSON output
+unsdg goals -o jsonl | jq .title
 ```
-
-This is a fresh scaffold. The command tree starts with `version`; build out the
-real commands in `cli/` on top of the `unsdg` library package.
 
 ## Development
 
 ```
 cmd/unsdg/   thin main, wires cli.Root into fang
-cli/                 the cobra command tree
-unsdg/                the library: HTTP client and data models
-docs/                tago documentation site
+cli/         the cobra command tree
+unsdg/       the library: HTTP client and data models
+docs/        tago documentation site
 ```
 
 ```bash

@@ -4,9 +4,9 @@ description: "What unsdg is and how it is put together."
 weight: 10
 ---
 
-A command line for unsdg.
+`unsdg` browses UN Sustainable Development Goals from the command line.
 
-unsdg is a single binary. It speaks to unsdg over plain HTTPS,
+It is a single binary. It speaks to the UN SDG API over plain HTTPS,
 shapes the responses into clean records, and gets out of your way. There is
 nothing to sign up for and nothing to run alongside it.
 
@@ -21,7 +21,7 @@ nothing to sign up for and nothing to run alongside it.
 
 ## Scope
 
-unsdg is a read-only client over data unsdg already serves
+`unsdg` is a read-only client over data the UN SDG API already serves
 publicly. It reads that data and shapes it for you. That narrow scope keeps it a
 single small binary with no database, no daemon, and no setup.
 
